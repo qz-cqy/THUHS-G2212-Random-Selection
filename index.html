@@ -19,8 +19,9 @@
             <input type="radio" name="allow-repetition" value="false" checked/>禁止重复抽取
         </div>
         <div id="init-area" class="settings">
-            <p style="font-size: 80%;">若自定义名单，名字之间用一个半角空格隔开；若导入 G2212 名单，请输入密码。</p>
-            <input type="text" id="namelist" placeholder="名单或密码">
+            <p style="font-size: 80%;">若自定义名单，名字之间用一个半角空格隔开，密码留空；若导入 G2212 名单，请输入密码，名单留空。</p>
+            <input type="text" id="namelist" placeholder="名单">
+            <input type="password" id="password" placeholder="密码">
             <button id="init" onclick="init()" class="button">导入名单</button>
             <button id="init-G2212" onclick="init_G2212()" class="button">导入 G2212 名单</button>
             <div id="show-namelist"></div>
