@@ -13,6 +13,10 @@ function choice(arr) {
 let arr = new Array();
 let vis = new Array();
 let chosen = 0;
+function mark(chosen) {
+    vis[chosen] = 1;
+    load();
+}
 function load() {
     if(arr.length == 0) {
         let html = '';
@@ -22,7 +26,7 @@ function load() {
     else {
         let html = '';
         let n = arr.length;
-        html += `<table class='no-border'>`;
+        html += `<table id='namelist-table' class='no-border'>`;
         for(let i = 0; i < n; i++) {
             if(i % 10 == 0) html += `<tr class='no-border'>`;
             html += `<td class="student ${vis[i] ? "unavailable" : "available"}">${arr[i]}</td>`;
@@ -30,6 +34,7 @@ function load() {
         }
         html += `</table>`
         document.getElementById('show-namelist').innerHTML = html;
+        console.log(document.getElementById("namelist-table"));
     }
 }
 function init() {
@@ -43,10 +48,6 @@ function init() {
     setTimeout(function () {
         document.getElementById('result-init').innerHTML = '';
     }, 2000);
-}
-function mark(chosen) {
-    vis[chosen] = 1;
-    load();
 }
 function generate() {
     let tmp = new Array();
