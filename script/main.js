@@ -1,3 +1,8 @@
+window.onbeforeunload = function(e) {
+    var dialogText = '请勿刷新本界面！否则会导致结果丢失。';
+    e.returnValue = dialogText;
+    return dialogText;
+};
 function getQueryletiable(letiable) {
     let query = window.location.search.substring(1);
     let lets = query.split("&");
