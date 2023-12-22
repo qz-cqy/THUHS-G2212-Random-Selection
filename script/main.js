@@ -83,7 +83,7 @@ function generate() {
             document.getElementById("display-area").innerHTML = html;
             document.getElementById("regenerate").disabled = false;
             let allow_repetition = document.querySelector("input[name=\"allow-repetition\"]").checked;
-            if(allow_repetition == "false") toggle(chosen);
+            if(allow_repetition == false) toggle(chosen);
         }, 1000);
     }
 }
