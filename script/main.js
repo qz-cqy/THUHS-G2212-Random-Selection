@@ -1,9 +1,9 @@
-function getQueryVariable(variable) {
+function getQueryletiable(letiable) {
     let query = window.location.search.substring(1);
-    let vars = query.split("&");
-    for (let i = 0; i < vars.length; i++) {
-        let pair = vars[i].split("=");
-        if (pair[0] == variable) { return pair[1]; }
+    let lets = query.split("&");
+    for (let i = 0; i < lets.length; i++) {
+        let pair = lets[i].split("=");
+        if (pair[0] == letiable) { return pair[1]; }
     }
     return "-1";
 }
@@ -90,23 +90,32 @@ function generate() {
 function md5(str) {
     return CryptoJS.MD5(str).toString();
 }
-function aesEncrypt(str, key) {
-    var key = CryptoJS.enc.Utf8.parse(key);
-    var srcs = CryptoJS.enc.Utf8.parse(str);
-    var encrypted = CryptoJS.AES.encrypt(srcs, key, { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7 });
-    return encrypted.toString();
+function aesEncrypt(str, key, iv) {
+    let srcs = CryptoJS.enc.Utf8.parse(str);
+    let encrypted = CryptoJS.AES.encrypt(srcs, key, {
+        iv: iv,
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.Pkcs7,
+    });
+    return encrypted.ciphertext.toString().toUpperCase();
 }
-function aesDecrypt(str, key) {
-    var key = CryptoJS.enc.Utf8.parse(key);
-    var decrypt = CryptoJS.AES.decrypt(str, key, { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7 });
-    return CryptoJS.enc.Utf8.stringify(decrypt).toString();
+function aesDecrypt(str, key, iv) {
+    let encryptedHexStr = CryptoJS.enc.Hex.parse(str);
+    let srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);
+    let decrypt = CryptoJS.AES.decrypt(srcs, key, {
+        iv: iv,
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.Pkcs7,
+    });
+    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);
+    return decryptedStr.toString();
 }
 function init_G2212() {
     let key = document.getElementById("namelist").value;
-    if(md5(key) != "79e3f0902c0cb8f6d4e98dda490cbfee") alert("密码错误！");
+    if(md5(key) != "f5c0f1a9f706b4f97a6cefa6f1c8ada6") alert("密码错误！");
     else {
-        let str = "U2FsdGVkX1+nimrp3Zvh3T3kj8U6q3wGX1eMjJxJgAcV+WB9lr479vezfP5uewfBlWSMhyWPUXPlVz3m1FmyvydgzdMzqGJcxsGvH4cM4YJ5h1oR0D2vNZWC/+NZ7jU/pEVtFWco1pTS3ZxjnuMCin8/6etZfMevdZbsCn3wcWbzhw6zszsthT/Dw5uNnntayyFJgvis8VWkiTaCZ6aVNR5oKQnsnsYPMMDyP36l+N0Dw8R89g1qEDCQJAmMSSuLsJ0BfRPOUmj4UAxe9rAdaltekJ41DBceMOL3VAO9+6207nGp/0J00HorMhMeib6VgoxZmj8NrpmVS45WzrqSPCO+PePGsw88zh/DjLnMvmnCALrs2JXBbOt7HD1qUDKLUqzF9yLZNXjmVxolOcM7KdilvbtEIxeeMVI41bokl4CUzi8SxCpb4uBI4yD2mKdaN0ji0XLHiAnqLpZ+iKWQe+tmw9AZz7vn0Qj52yBdYXWgmE5JN98Y8/MCVo5FPozS6151vUxwDO/tlVg1msywZ12fzECvmiQwli2RPs6Qm1jD4Hkb7I+6KieYGv/gep5c3+VPC/PgpP+5kjdZs/rbomsYL/YRONjRwR/6hC1kqMI=";
-        let namelist = aesDecrypt(str, key);
+        let str = "U2FsdGVkX1/C3/YuDGCyd2cUmCdKEra1Cc1x/RXXXl4yM9JR1jVZP5Jm9RMJldlqvUN3NOXKIQCIscO3sLmioXIzybvooBow7BdsBvMwp4R4cUtr58J+FJMHWfNiXTh1ln80iJ9H7UqEM3oBah9dhW5ZuJ9vxYlY7wGIv7AhrdlTiLe9SWNL6WwHR59jtrFlaFNTf01Ig1VqTFdyD1G02VVeJV3URLEt0olcTCmZjVQiB6Gd1xnw6MQ5L7Ta+dPziidXNVRV45s3a7/axIgbgu8eG4as0Nmm/yiBIXrH580dTvZN2seZREdemFCyI95lXOiezQlyE8xobya75ZIquFlm+Bz9HiBI2v2g9iN1UsyMNfOugZw8jdXhRPj+pv2r844rpjVAhjrkSANmkN+7trDa8LajKCcfWttaVFcl/qU/cH8ZO12StpxomclZq/GYjSycGb9kuYmfkOT5UDXmb1I5BQWEjQ2VYN/Sdc/Wc1H08u50kQhlVTPIy1mk4r+ciL4537YnLPjsnrPeTuxErTuhi75d8hRMSfHUhDExYshmBXxBPCESXJL0aVegMm85vX2G2DKFpLb7j3Cx7PBwhFUVbmRml3kALMJR4GY0Zm4=";
+        let namelist = aesDecrypt(str, key, "qwq");
         arr = namelist.split(" ");
         vis = new Array(arr.length).fill(0);
         load();
