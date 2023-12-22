@@ -17,7 +17,7 @@ function load() {
     if(arr.length == 0) {
         let html = '';
         html += `<p>还没有数据。</p>`;
-        document.getElementById('show-weight').innerHTML = html;
+        document.getElementById('show-namelist').innerHTML = html;
     }
     else {
         let html = '';
@@ -29,7 +29,7 @@ function load() {
             if(i % 10 == 9 || i == n - 1) html += `</tr>`;
         }
         html += `</table>`
-        document.getElementById('show-weight').innerHTML = html;
+        document.getElementById('show-namelist').innerHTML = html;
     }
 }
 function init() {
