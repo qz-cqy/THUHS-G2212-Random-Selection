@@ -97,7 +97,7 @@ function aesEncrypt(str, key) {
     return encrypted.toString();
 }
 function aesDecrypt(str, key) {
-    var key = CryptoJSJS.enc.Utf8.parse(key);
+    var key = CryptoJS.enc.Utf8.parse(key);
     var decrypt = CryptoJS.AES.decrypt(str, key, { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7 });
     return CryptoJS.enc.Utf8.stringify(decrypt).toString();
 }
