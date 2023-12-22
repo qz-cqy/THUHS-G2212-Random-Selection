@@ -33,7 +33,7 @@ function load() {
     }
 }
 function init() {
-    let str = documant.getElementById('namelist').value;
+    let str = document.getElementById('namelist').value;
     arr = str.split(' ');
     vis = new Array(arr.length).fill(0);
     let html = '';
