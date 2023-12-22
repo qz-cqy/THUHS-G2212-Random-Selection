@@ -1,0 +1,46 @@
+.display-area {
+    text-align: center;
+    margin: 10px;
+    padding: 30px;
+    border: 1px solid black;
+    font-family: 楷体;
+    font-size: larger;
+}
+.button-area {
+    display: flex;
+}
+.settings {
+    border: 1px solid black;
+    padding: 5px;
+    margin: 10px 0px;
+}
+.lucky {
+    display: inline;
+    border-bottom: 2px solid #228be6;
+}
+.button {
+    background-color: #ff69b4;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+}
+.middle {
+    margin: 0px auto;
+    display: block;
+}
+.student {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    text-align: center;
+}
+.available {
+    background-color: #20c997;
+}
+.unavailable {
+    background-color: #ff6b6b;
+}
+.no-border {
+    border: none;
+}
