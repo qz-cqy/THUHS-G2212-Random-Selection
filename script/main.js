@@ -34,7 +34,13 @@ function load() {
         }
         html += `</table>`
         document.getElementById('show-namelist').innerHTML = html;
-        console.log(document.getElementById("namelist-table"));
+        let namelist_table = document.getElementById("namelist-table");
+        let cells = namelist_table.getElementsByTagName("td");
+        for(let i = 0; i < cells.length; i++) {
+            cells[i].addEventListener('click', function() {
+                mark(i);
+            });
+        }
     }
 }
 function init() {
