@@ -33,7 +33,7 @@ function load() {
             if(i % 10 == 9 || i == n - 1) html += `</tr>`;
         }
         html += `</table>`;
-        html += `<p style="fone-size: 80%;">提示：单击单元格可以切换单元格状态。</p>`;
+        html += `<p style="font-size: 80%;">提示：单击单元格可以切换单元格状态。</p>`;
         document.getElementById("show-namelist").innerHTML = html;
         let namelist_table = document.getElementById("namelist-table");
         let cells = namelist_table.getElementsByTagName("td");
