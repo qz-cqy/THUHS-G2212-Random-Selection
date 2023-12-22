@@ -87,20 +87,19 @@ function generate() {
         }, 2000);
     }
 }
-let crypto = require("./crypto.js");
 function md5(str) {
-    return crypto.MD5(str).toString();
+    return CryptoJS.MD5(str).toString();
 }
 function aesEncrypt(str, key) {
-    var key = crypto.enc.Utf8.parse(key);
-    var srcs = crypto.enc.Utf8.parse(str);
-    var encrypted = crypto.AES.encrypt(srcs, key, { mode: crypto.mode.ECB, padding: crypto.pad.Pkcs7 });
+    var key = CryptoJS.enc.Utf8.parse(key);
+    var srcs = CryptoJS.enc.Utf8.parse(str);
+    var encrypted = CryptoJS.AES.encrypt(srcs, key, { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7 });
     return encrypted.toString();
 }
 function aesDecrypt(str, key) {
-    var key = crypto.enc.Utf8.parse(key);
-    var decrypt = crypto.AES.decrypt(str, key, { mode: crypto.mode.ECB, padding: crypto.pad.Pkcs7 });
-    return crypto.enc.Utf8.stringify(decrypt).toString();
+    var key = CryptoJSJS.enc.Utf8.parse(key);
+    var decrypt = CryptoJS.AES.decrypt(str, key, { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7 });
+    return CryptoJS.enc.Utf8.stringify(decrypt).toString();
 }
 function init_G2212() {
     let key = document.getElementById("namelist").value;
