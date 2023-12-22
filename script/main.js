@@ -48,13 +48,7 @@ function init() {
     let str = document.getElementById("namelist").value;
     arr = str.split(" ");
     vis = new Array(arr.length).fill(0);
-    let html = "";
-    html += `<p style="color: blue;">导入成功！</p>`;
-    document.getElementById("result-init").innerHTML = html;
     load();
-    setTimeout(function () {
-        document.getElementById("result-init").innerHTML = "";
-    }, 2000);
 }
 function generate() {
     let tmp = new Array();
