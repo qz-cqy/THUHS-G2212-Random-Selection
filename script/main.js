@@ -82,7 +82,7 @@ function generate() {
             chosen = lucky;
             document.getElementById("display-area").innerHTML = html;
             document.getElementById('regenerate').disabled = false;
-            let allow_repetition = document.getElementById('allow-repetition').value;
+            let allow_repetition = document.querySelector('input[name="allow-repetition"]:checked').value;
             if(allow_repetition == "false") mark();
         }, 2000);
     }
