@@ -76,7 +76,7 @@ function generate() {
             let html_t = "";
             html_t += `幸运的是：<div class="lucky">${arr[lucky_t]}</div>！`;
             document.getElementById("display-area").innerHTML = html_t;
-        }, 100);
+        }, 50);
         setTimeout(function () {
             clearInterval(intv);
             chosen = lucky;
@@ -84,7 +84,7 @@ function generate() {
             document.getElementById("regenerate").disabled = false;
             let allow_repetition = document.querySelector("input[name=\"allow-repetition\"]:checked").value;
             if(allow_repetition == "false") toggle(chosen);
-        }, 2000);
+        }, 1000);
     }
 }
 function md5(str) {
