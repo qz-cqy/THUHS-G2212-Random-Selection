@@ -115,7 +115,7 @@ function init_G2212() {
     if(md5(key) != "f5c0f1a9f706b4f97a6cefa6f1c8ada6") alert("密码错误！");
     else {
         let str = "U2FsdGVkX1/C3/YuDGCyd2cUmCdKEra1Cc1x/RXXXl4yM9JR1jVZP5Jm9RMJldlqvUN3NOXKIQCIscO3sLmioXIzybvooBow7BdsBvMwp4R4cUtr58J+FJMHWfNiXTh1ln80iJ9H7UqEM3oBah9dhW5ZuJ9vxYlY7wGIv7AhrdlTiLe9SWNL6WwHR59jtrFlaFNTf01Ig1VqTFdyD1G02VVeJV3URLEt0olcTCmZjVQiB6Gd1xnw6MQ5L7Ta+dPziidXNVRV45s3a7/axIgbgu8eG4as0Nmm/yiBIXrH580dTvZN2seZREdemFCyI95lXOiezQlyE8xobya75ZIquFlm+Bz9HiBI2v2g9iN1UsyMNfOugZw8jdXhRPj+pv2r844rpjVAhjrkSANmkN+7trDa8LajKCcfWttaVFcl/qU/cH8ZO12StpxomclZq/GYjSycGb9kuYmfkOT5UDXmb1I5BQWEjQ2VYN/Sdc/Wc1H08u50kQhlVTPIy1mk4r+ciL4537YnLPjsnrPeTuxErTuhi75d8hRMSfHUhDExYshmBXxBPCESXJL0aVegMm85vX2G2DKFpLb7j3Cx7PBwhFUVbmRml3kALMJR4GY0Zm4=";
-        let namelist = aesDecrypt(str, key, CryptoJS.enc.Utf8.parse("qwq"));
+        let namelist = aesDecrypt(str, CryptoJS.enc.Utf8.parse(key), CryptoJS.enc.Utf8.parse("qwq"));
         arr = namelist.split(" ");
         vis = new Array(arr.length).fill(0);
         load();
