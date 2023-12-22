@@ -21,7 +21,7 @@ function toggle(chosen) {
     load();
 }
 function clear() {
-    for(let i = 0; i < arr.length; i++) if(vis[i]) toggle(i);
+    for(let i = 0; i < arr.length; i++) vis[i] = 0;
 }
 function load() {
     if(arr.length == 0) {
