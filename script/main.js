@@ -22,6 +22,7 @@ function toggle(chosen) {
 }
 function clear() {
     for(let i = 0; i < arr.length; i++) vis[i] = 0;
+    load();
 }
 function load() {
     if(arr.length == 0) {
