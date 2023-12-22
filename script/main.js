@@ -20,6 +20,9 @@ function toggle(chosen) {
     vis[chosen] ^= 1;
     load();
 }
+function clear() {
+    for(let i = 0; i < arr.length; i++) if(vis[i]) toggle(i);
+}
 function load() {
     if(arr.length == 0) {
         let html = "";
@@ -28,12 +31,11 @@ function load() {
     }
     else {
         let html = "";
-        let n = arr.length;
         html += `<table id="namelist-table" class="no-border">`;
-        for(let i = 0; i < n; i++) {
+        for(let i = 0; i < arr.length; i++) {
             if(i % 10 == 0) html += `<tr class="no-border">`;
             html += `<td class="student ${vis[i] ? "unavailable" : "available"}">${arr[i]}</td>`;
-            if(i % 10 == 9 || i == n - 1) html += `</tr>`;
+            if(i % 10 == 9 || i == arr.length - 1) html += `</tr>`;
         }
         html += `</table>`;
         html += `<p style="font-size: 80%;">提示：单击单元格可以切换单元格状态。</p>`;
@@ -55,11 +57,7 @@ function init() {
 }
 function generate() {
     let tmp = new Array();
-    for(let i = 0; i < arr.length; i++) {
-        if(!vis[i]) {
-            tmp.push(i);
-        }
-    }
+    for(let i = 0; i < arr.length; i++) if(!vis[i]) tmp.push(i);
     if(tmp.length == 0) {
         let html = "";
         html += `<p style="color: red;">没有可抽取的！</p>`;
