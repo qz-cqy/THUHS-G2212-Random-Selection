@@ -44,15 +44,13 @@ function init() {
         document.getElementById('result-init').innerHTML = '';
     }, 2000);
 }
-function mark() {
-    if(!chosen) return;
+function mark(chosen) {
     vis[chosen] = 1;
     load();
 }
 function generate() {
     let tmp = new Array();
-    let n = arr.length;
-    for(let i = 0; i < n; i++) {
+    for(let i = 0; i < arr.length; i++) {
         if(!vis[i]) {
             tmp.push(i);
         }
@@ -83,7 +81,7 @@ function generate() {
             document.getElementById("display-area").innerHTML = html;
             document.getElementById('regenerate').disabled = false;
             let allow_repetition = document.querySelector('input[name="allow-repetition"]:checked').value;
-            if(allow_repetition == "false") mark();
+            if(allow_repetition == "false") mark(chosen);
         }, 2000);
     }
 }
