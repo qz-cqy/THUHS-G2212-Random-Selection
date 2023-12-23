@@ -41,10 +41,9 @@ function load() {
         html += `</table>`;
         html += `<p style="font-size: 80%;">提示：单击单元格可以切换单元格状态。</p>`;
         $("#show-namelist").html(html);
-        let id = 0;
-        $("#namelist-table").find("td").each(function() {
+        $("#namelist-table").find("td").each(function(index) {
             $(this).click(function() {
-                toggle(id++);
+                toggle(index);
             });
         });
     }
