@@ -19,12 +19,13 @@
             <p>允许重复抽取？</p>
         </div>
         <div id="init-area" class="settings">
-            <p style="font-size: 80%;">若自定义名单，名字之间用一个半角空格隔开，密码留空；若导入 G2212 名单，请输入密码，名单留空。</p>
+            <p style="font-size: 80%;">若自定义名单，名字之间用一个半角空格隔开，密码留空；若导入 G2212 名单或 2025 年 6 月 23 日聚餐名单，请输入对应的密码，名单留空。</p>
             <p style="font-size: 80%; color: red;">请勿刷新本界面！否则会导致结果丢失。</p>
             <input type="text" id="namelist" placeholder="名单">
             <input type="password" id="password" placeholder="密码">
-            <button id="init" class="button">导入名单</button>
-            <button id="init-G2212" class="button">导入 G2212 名单</button>
+            <button id="init" class="button">输入名单</button>
+            <button id="push-back" class="button">追加到名单末尾</button>
+            <button id="init-G2212" class="button">导入已有名单</button>
             <div id="show-namelist"></div>
             <button id="clear" class="button">清空抽取记录</button>
         </div>
@@ -32,6 +33,7 @@
     <script>
         $("#regenerate").click(function() {generate();});
         $("#init").click(function() {init();});
+        $("#push-back").click(function() {push_back();});
         $("#init-G2212").click(function() {init_G2212();});
         $("#clear").click(function() {clear();});
     </script>
