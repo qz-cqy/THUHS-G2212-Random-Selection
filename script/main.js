@@ -53,6 +53,14 @@ function init() {
     vis = new Array(arr.length).fill(0);
     load();
 }
+function push_back() {
+    let lst = $("#namelist").val().split(" ");
+    for(let i = 0; i < lst.length; i++) {
+        arr.push(lst[i]);
+        vis.push(0);
+    }
+    load();
+}
 function generate() {
     let tmp = new Array();
     for(let i = 0; i < arr.length; i++) if(!vis[i]) tmp.push(i);
